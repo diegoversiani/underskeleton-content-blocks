@@ -5,28 +5,25 @@ Description: Create reusable content blocks you can display anywhere in your sit
 Plugin URI: http://getunderskeleton.com/plugins/content-blocks
 Author: Diego Versiani
 Author URI: http://diegoversiani.me
-Version: 1.0
+Version: 1.0.0
 License: GPL2
 Text Domain: underskeleton_ctb
 Domain Path: /languages
 
+Copyright (C) 2017 Underskeleton Content Blocks
 
-    Copyright (C) 2017 Underskeleton - Diego Versiani
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License, version 2, as
+published by the Free Software Foundation.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as
-    published by the Free Software Foundation.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
-
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 if ( !defined( 'ABSPATH' ) ) {
