@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Underskeleton Content Blocks
-Description: Create blocks of content you can display anywhere in your site using shortcodes. Use them to create many different sections in one page and show a clickable index of the sections.
+Description: Create reusable content blocks you can display anywhere in your site using shortcodes. Build a page or post with different sections and show a clickable index, re-use each block separatelly in other pages and posts.
 Plugin URI: http://getunderskeleton.com/plugins/content-blocks
 Author: Diego Versiani
 Author URI: http://diegoversiani.me
@@ -9,11 +9,10 @@ Version: 1.0
 License: GPL2
 Text Domain: underskeleton_ctb
 Domain Path: /languages
-*/
 
-/*
 
-    Copyright (C) 2017 Diego Versiani diegoversiani@gmail.com
+
+    Copyright (C) 2017 Underskeleton - Diego Versiani
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -28,6 +27,10 @@ Domain Path: /languages
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+
+
+
 
 /**
  * Load plugin functions file
