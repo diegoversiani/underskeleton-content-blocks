@@ -5,6 +5,12 @@
  * @package underskeleton_ctb
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
+
+
+
 function underskeleton_ctb_register_shortcode_content_block() {
   add_shortcode('content-block', 'underskeleton_ctb_shortcode_content_block');
 }

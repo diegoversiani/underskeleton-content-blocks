@@ -11,7 +11,6 @@ Text Domain: underskeleton_ctb
 Domain Path: /languages
 
 
-
     Copyright (C) 2017 Underskeleton - Diego Versiani
 
     This program is free software; you can redistribute it and/or modify
@@ -26,9 +25,20 @@ Domain Path: /languages
     You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+
 */
 
+if ( !defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
 
+
+
+define( 'UNDERSKELETON_CONTENT_BLOCKS_PLUGIN_PATH', plugin_dir_path(__FILE__) );
+define( 'UNDERSKELETON_CONTENT_BLOCKS_PLUGIN_URL', plugin_dir_url(__FILE__) );
+define( 'UNDERSKELETON_CONTENT_BLOCKS_THEME_TEMPLATES_FOLDER', 'plugins/underskeleton-content-blocks/templates/' );
+define( 'UNDERSKELETON_CONTENT_BLOCKS_TEMPLATES_FOLDER',  UNDERSKELETON_CONTENT_BLOCKS_PLUGIN_PATH . 'templates/' );
 
 
 

@@ -1,5 +1,11 @@
 <?php
 
+if ( !defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
+
+
+
 if ( !function_exists( 'underskeleton_ctb_get_boolean_value' ) ) :
 
   function underskeleton_ctb_get_boolean_value( $string ) {

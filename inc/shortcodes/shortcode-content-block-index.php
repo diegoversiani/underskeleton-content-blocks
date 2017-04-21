@@ -3,6 +3,12 @@
  * Implements content-block-index shortcode.
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
+
+
+
 function underskeleton_ctb_register_shortcode_content_block_index(){
   add_shortcode('content-block-index', 'underskeleton_ctb_shortcode_content_block_index');
 }

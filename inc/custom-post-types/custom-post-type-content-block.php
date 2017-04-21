@@ -5,6 +5,12 @@
  * @link http://codex.wordpress.org/Function_Reference/register_post_type
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+  exit; // Exit if accessed directly
+}
+
+
+
 function underskeleton_ctb_custom_post_type_content_block() {
   $labels = array(
     'name'               => _x( 'Content Blocks', 'post type general name', 'underskeleton_ctb' ),
