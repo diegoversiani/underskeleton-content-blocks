@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Underskeleton Content Blocks
-Description: Create reusable content blocks you can display anywhere in your site using shortcodes. Build a page or post with different sections and show a clickable index, re-use each block separatelly in other pages and posts.
+Description: Create reusable content blocks you can display anywhere in your site using shortcodes. Build a page or post with different sections, re-use each block separatelly in other pages and posts.
 Plugin URI: http://getunderskeleton.com/plugins/content-blocks
 Author: Diego Versiani
 Author URI: http://diegoversiani.me
@@ -52,5 +52,4 @@ require plugin_dir_path( __FILE__ ) . '/inc/custom-post-types/custom-post-type-c
 /**
  * Load shortcodes
  */
-require plugin_dir_path( __FILE__ ) . '/inc/shortcodes/shortcode-content-block-index.php';
 require plugin_dir_path( __FILE__ ) . '/inc/shortcodes/shortcode-content-block.php';

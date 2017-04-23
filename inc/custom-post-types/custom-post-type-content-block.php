@@ -42,7 +42,7 @@ function underskeleton_ctb_custom_post_type_content_block() {
     'has_archive'        => false,
     'hierarchical'       => false,
     'menu_position'      => null,
-    'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
+    'supports'           => array( 'title', 'editor', 'excerpt', 'revisions' )
   );
 
   register_post_type( 'underskeleton_ctb', $args );

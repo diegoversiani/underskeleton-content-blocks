@@ -12,7 +12,7 @@ Create reusable blocks of content you can display anywhere in your website using
 
 == Description ==
 
-Create reusable content blocks you can display anywhere in your site using shortcodes. Build a page or post with different sections and show a clickable index, re-use each block separatelly in other pages and posts.
+Create reusable content blocks you can display anywhere in your site using shortcodes. Build a page or post with different sections, re-use each block separatelly in other pages and posts.
 
 = Usage =
 
@@ -21,13 +21,6 @@ Using Content Blocks is as easy as:
 1. Creating content blocks at "WP Admin > Content Blocks".
 2. Give it a memorable slug.
 3. Add `[content-block slug="your-memorable-slug"]` shortcode in the page or post you want.
-
-
-Display a table of contents
-
-1. Create one or more content blocks at "WP Admin > Content Blocks".
-2. Add one or more content blocks to your page or post using the shortcode (see above).
-3. Add `[content-block-index]` shortcode to the page or post.
 
 
 == Installation ==
