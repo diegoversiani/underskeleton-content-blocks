@@ -43,5 +43,5 @@ Using Content Blocks is as easy as:
 
 == Changelog ==
 
-= 1.0-beta-1 =
-* In development
+= 1.0.0 =
+* Initial version
