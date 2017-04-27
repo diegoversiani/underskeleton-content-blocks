@@ -68,8 +68,7 @@ function underskeleton_ctb_shortcode_content_block( $atts ) {
     // Start buffering
     ob_start();
     
-    $template = locate_template( UNDERSKELETON_CONTENT_BLOCKS_THEME_TEMPLATES_FOLDER . 'content-block.php' );
-    if ( empty($template) ) $template = UNDERSKELETON_CONTENT_BLOCKS_TEMPLATES_FOLDER . 'content-block.php';
+    $template = UnderskeletonContentBlocks()->locate_template( 'content-block' );
     include ( $template );
 
     // Get buffer contents and release

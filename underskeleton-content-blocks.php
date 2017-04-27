@@ -40,6 +40,11 @@ define( 'UNDERSKELETON_CONTENT_BLOCKS_TEMPLATES_FOLDER',  UNDERSKELETON_CONTENT_
 
 
 /**
+ * Load classes
+ */
+require plugin_dir_path( __FILE__ ) . '/inc/classes/class.underskeleton-content-blocks.php';
+
+/**
  * Load plugin functions file
  */
 require plugin_dir_path( __FILE__ ) . '/plugin-functions.php';
