@@ -73,7 +73,7 @@ function underskeleton_ctb_options_metabox_render() {
   ?>
     <p>
       <label for="content_block_options[template]"><?php _e( 'Template:', 'underskeleton_ctb' ); ?></label><br>
-      <select name="content_block_options[template]" id="content_block_options[template]">
+      <select name="content_block_options[template]" id="content_block_options[template]" class="content-block-templates">
         <?php foreach ( $template_options as $template_meta ) {
           echo sprintf( '<option value="%1$s" %3$s >%2$s</option>',
             esc_attr( $template_meta['id'] ),

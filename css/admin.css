@@ -1,2 +1,7 @@
-/*------------------------------------*  #IMPORT VARIABLES
+/*------------------------------------*  #CUSTOM TEMPLATES
 \*------------------------------------*/
+.content-block-template-options {
+  display: none; }
+
+.content-block-template-options--open {
+  display: block; }
