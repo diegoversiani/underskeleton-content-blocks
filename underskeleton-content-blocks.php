@@ -58,3 +58,8 @@ require plugin_dir_path( __FILE__ ) . '/inc/custom-post-types/custom-post-type-c
  * Load shortcodes
  */
 require plugin_dir_path( __FILE__ ) . '/inc/shortcodes/shortcode-content-block.php';
+
+/**
+ * Load register templates
+ */
+require plugin_dir_path( __FILE__ ) . '/inc/shortcodes/content-block/register-template-custom.php';

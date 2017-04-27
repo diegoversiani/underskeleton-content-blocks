@@ -63,34 +63,37 @@ function underskeleton_ctb_options_metabox_render() {
 
   $template_options = UnderskeletonContentBlocks()->get_templates();
 
-  $_content_block_template = get_post_meta($post->ID, '_content_block_template', true);
-  $_content_block_custom_classes= get_post_meta($post->ID, '_content_block_custom_classes', true);
-  $_content_block_custom_css = get_post_meta($post->ID, '_content_block_custom_css', true);
+  $block_options = get_post_meta( $post->ID, 'content_block_options', true );
+  $template = isset( $block_options['template'] ) ? $block_options['template'] : '';
+  $custom_classes = isset( $block_options['custom_classes'] ) ? $block_options['custom_classes'] : '';
+  $custom_css = isset( $block_options['custom_css'] ) ? $block_options['custom_css'] : '';
 
   // create nonce
-  wp_nonce_field( basename( __FILE__ ), 'underskeleton_ctb_options_nonce');
+  wp_nonce_field( basename( __FILE__ ), 'underskeleton_ctb_options_nonce' );
   ?>
     <p>
-      <label for="_content_block_template"><?php _e( 'Template:', 'underskeleton_ctb' ); ?></label><br>
-      <select name="_content_block_template" id="_content_block_template">
-        <?php foreach ( $template_options as $template ) {
+      <label for="content_block_options[template]"><?php _e( 'Template:', 'underskeleton_ctb' ); ?></label><br>
+      <select name="content_block_options[template]" id="content_block_options[template]">
+        <?php foreach ( $template_options as $template_meta ) {
           echo sprintf( '<option value="%1$s" %3$s >%2$s</option>',
-            esc_attr( $template['id'] ),
-            esc_html( $template['label'] ),
-            esc_attr( $_content_block_template == $template['id'] ? 'selected' : '' )
+            esc_attr( $template_meta['id'] ),
+            esc_html( $template_meta['label'] ),
+            esc_attr( $template == $template_meta['id'] ? 'selected' : '' )
           );
         } ?>
       </select>
     </p>
 
+    <?php do_action( 'underskeleton_ctb_options_metabox', $block_options ); ?>
+
     <p>
-      <label for="_content_block_custom_classes"><?php _e( 'Custom Classes:', 'underskeleton_ctb' ); ?></label><br>
-      <input name="_content_block_custom_classes" id="_content_block_custom_classes" type="text" value="<?php echo esc_attr( $_content_block_custom_classes ); ?>" class="widefat">
+      <label for="content_block_options[custom_classes]"><?php _e( 'Custom Classes:', 'underskeleton_ctb' ); ?></label><br>
+      <input name="content_block_options[custom_classes]" id="content_block_options[custom_classes]" type="text" value="<?php echo esc_attr( $block_options['custom_classes'] ); ?>" class="widefat">
     </p>
 
     <p>
-      <label for="_content_block_custom_css"><?php _e( 'Custom CSS:', 'underskeleton_ctb' ); ?></label><br>
-      <textarea name="_content_block_custom_css" id="_content_block_custom_css" type="text" class="widefat" rows="8"><?php echo underskeleton_ctb_sanitize_css( $_content_block_custom_css ); ?></textarea>
+      <label for="content_block_options[custom_css]"><?php _e( 'Custom CSS:', 'underskeleton_ctb' ); ?></label><br>
+      <textarea name="content_block_options[custom_css]" id="content_block_options[custom_css]" type="text" class="widefat" rows="8"><?php echo underskeleton_ctb_sanitize_css( $block_options['custom_css'] ); ?></textarea>
     </p>
 
   <?php
@@ -113,23 +116,20 @@ function underskeleton_ctb_content_block_metaboxes_save( $post_id ) {
   }
 
   // CONTENT BLOCK FIELDS
-  if ( isset( $_POST['underskeleton_ctb_options_nonce'] ) && wp_verify_nonce( $_POST['underskeleton_ctb_options_nonce'], basename( __FILE__ ) ) ) {
+  if ( isset( $_POST['underskeleton_ctb_options_nonce'] )
+        && wp_verify_nonce( $_POST['underskeleton_ctb_options_nonce'], basename( __FILE__ ) ) ) {
+    
+    $block_options = get_post_meta( $post_id, 'content_block_options', true );
 
-    // CUSTOM CLASSES
-    if ( isset( $_POST['_content_block_template'] ) ) {
-      update_post_meta( $post_id, '_content_block_template', sanitize_text_field( $_POST['_content_block_template'] ) );
-    }
+    $block_options['template'] = sanitize_text_field( $_POST['content_block_options']['template'] );
+    $block_options['custom_classes'] = sanitize_text_field( $_POST['content_block_options']['custom_classes'] );
+    $block_options['custom_css'] = underskeleton_ctb_sanitize_css( $_POST['content_block_options']['custom_css'] );
 
-    // CUSTOM CLASSES
-    if ( isset( $_POST['_content_block_custom_classes'] ) ) {
-      update_post_meta( $post_id, '_content_block_custom_classes', sanitize_text_field( $_POST['_content_block_custom_classes'] ) );
-    }
+    // apply filter before save options
+    $block_options = apply_filters( 'underskeleton_ctb_before_save_block_options', $block_options );
 
-    // CUSTOM CSS
-    if ( isset( $_POST['_content_block_custom_css'] ) ) {
-      update_post_meta( $post_id, '_content_block_custom_css', underskeleton_ctb_sanitize_css( $_POST['_content_block_custom_css'] ) );
-    }
-
+    // Update post meta
+    update_post_meta( $post_id, 'content_block_options', $block_options );
   }
 
 }

@@ -36,17 +36,10 @@ class UnderskeletonContentBlockShortcode {
   public function register_shortcode() {
     add_shortcode('content-block', array( $this, 'render_shortcode' ) );
 
-    
     UnderskeletonContentBlocks()->register_template( array(
       'group'              => 'content-block',
       'name'               => 'default',
       'label'              => 'Simple',
-     ) );
-
-    UnderskeletonContentBlocks()->register_template( array(
-      'group'              => 'content-block',
-      'name'               => 'custom',
-      'label'              => 'Custom Template',
      ) );
   }
 
@@ -83,23 +76,20 @@ class UnderskeletonContentBlockShortcode {
       global $post;
       $post = $posts[0];
       setup_postdata( $post );
-      
-      $block_custom_classes = get_post_meta( $post->ID, '_content_block_custom_classes', true );
-      $block_custom_css = get_post_meta( $post->ID, '_content_block_custom_css', true );
-      $block_template_id = get_post_meta( $post->ID, '_content_block_template', true );
 
-      $block_template = $block_template = UnderskeletonContentBlocks()->get_templates()[ $block_template_id ];
+      $block_options = get_post_meta( $post->ID, 'content_block_options', true );
+      $block_template = UnderskeletonContentBlocks()->get_templates()[ $block_options['template'] ];
 
       if ( empty( $block_id ) ) {
         $block_id = $slug;
       }
 
-      if ( !empty( $block_custom_css ) ) {
-        $return_string .= sprintf('<style type="text/css">%1$s</style>', underskeleton_ctb_sanitize_css( $block_custom_css ) );
+      if ( !empty( $block_options['custom_css'] ) ) {
+        $return_string .= sprintf('<style type="text/css">%s</style>', underskeleton_ctb_sanitize_css( $block_options['custom_css'] ) );
       }
 
       $block_classes = 'content-block content-block--' . $slug;
-      $block_classes .= ' ' . $block_custom_classes;
+      $block_classes .= ' ' . $block_options['custom_classes'];
       $block_classes .= ' ' . $classes;
       $title_classes = 'content-block__title';
       $content_classes = 'content-block__content';
