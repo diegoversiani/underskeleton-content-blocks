@@ -73,7 +73,6 @@ function underskeleton_ctb_options_metabox_render() {
     <p>
       <label for="_content_block_template"><?php _e( 'Template:', 'underskeleton_ctb' ); ?></label><br>
       <select name="_content_block_template" id="_content_block_template">
-        <option value="default" <?php echo esc_attr( $_content_block_template == 'default' ? 'selected' : '' ); ?> >-- Default --</option>
         <?php foreach ( $template_options as $template ) {
           echo sprintf( '<option value="%1$s" %3$s >%2$s</option>',
             esc_attr( $template['id'] ),

@@ -31,7 +31,7 @@ class UnderskeletonContentBlocks {
 
 
 
-  public function add_template( $template_args ) {
+  public function register_template( $template_args ) {
     if ( !is_array( $template_args ) ) {
       trigger_error( 'Wrong type for `$template_args`, should be array.', E_USER_NOTICE );
       exit;
