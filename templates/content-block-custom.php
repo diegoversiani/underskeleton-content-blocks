@@ -3,13 +3,16 @@
 * Shortcode content-block custom template
 */
 
+$color_1 = isset( $block_options['color_1'] ) ? $block_options['color_1'] : '';
+$color_2 = isset( $block_options['color_2'] ) ? $block_options['color_2'] : '';
+
 $gradient_style = sprintf( 'style="background: %1$s;
   background: -webkit-linear-gradient(%1$s, %2$s);
   background: -o-linear-gradient(%1$s, %2$s);
   background: -moz-linear-gradient(%1$s, %2$s);
   background: linear-gradient(%1$s, %2$s);"',
-  $block_options['color_1'],
-  $block_options['color_2']
+  esc_attr( $color_1 ),
+  esc_attr( $color_2 )
   );
 
 ?>
