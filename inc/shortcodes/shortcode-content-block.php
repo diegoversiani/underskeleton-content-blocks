@@ -13,6 +13,13 @@ if ( !defined( 'ABSPATH' ) ) {
 
 function underskeleton_ctb_register_shortcode_content_block() {
   add_shortcode('content-block', 'underskeleton_ctb_shortcode_content_block');
+
+  // register templates
+  UnderskeletonContentBlocks()->add_template( array(
+    'group'              => 'content-block',
+    'name'               => 'custom',
+    'label'              => 'Custom Template Var',
+   ) );
 }
 add_action( 'init', 'underskeleton_ctb_register_shortcode_content_block');
 
@@ -68,7 +75,7 @@ function underskeleton_ctb_shortcode_content_block( $atts ) {
     // Start buffering
     ob_start();
     
-    $template = UnderskeletonContentBlocks()->locate_template( 'content-block' );
+    $template = UnderskeletonContentBlocks()->locate_template( 'content-block', 'custom' );
     include ( $template );
 
     // Get buffer contents and release
