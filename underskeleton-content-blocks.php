@@ -50,6 +50,11 @@ require plugin_dir_path( __FILE__ ) . '/inc/classes/class.underskeleton-content-
 require plugin_dir_path( __FILE__ ) . '/plugin-functions.php';
 
 /**
+ * Load plugin register scripts and styles
+ */
+require plugin_dir_path( __FILE__ ) . '/inc/enqueue.php';
+
+/**
  * Load custom post types
  */
 require plugin_dir_path( __FILE__ ) . '/inc/custom-post-types/custom-post-type-content-block.php';
