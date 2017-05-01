@@ -67,4 +67,4 @@ require plugin_dir_path( __FILE__ ) . '/inc/shortcodes/shortcode-content-block.p
 /**
  * Load register templates
  */
-require plugin_dir_path( __FILE__ ) . '/inc/shortcodes/content-block/register-template-custom.php';
+require plugin_dir_path( __FILE__ ) . '/inc/shortcodes/content-block/register-template-simple.php';

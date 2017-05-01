@@ -35,12 +35,6 @@ class UnderskeletonContentBlockShortcode {
 
   public function register_shortcode() {
     add_shortcode('content-block', array( $this, 'render_shortcode' ) );
-
-    UnderskeletonContentBlocks()->register_template( array(
-      'group'              => 'content-block',
-      'name'               => 'default',
-      'label'              => 'Simple',
-     ) );
   }
 
 
@@ -78,7 +72,16 @@ class UnderskeletonContentBlockShortcode {
       setup_postdata( $post );
 
       $block_options = get_post_meta( $post->ID, 'content_block_options', true );
-      $block_template = UnderskeletonContentBlocks()->get_templates()[ $block_options['template'] ];
+
+      $templates = UnderskeletonContentBlocks()->get_templates();
+      $block_template = $templates[ 'content-block-simple' ];
+      if ( isset( $templates[ $block_options['template'] ] ) ) {
+        $block_template = $templates[ $block_options['template'] ];
+      }
+      else {
+        $post_title = get_the_title();
+        trigger_error("Content Block '{$post_title}': Template '{$block_options['template']}' not registered or removed, using 'simple' instead.", E_USER_WARNING);
+      }
 
       if ( empty( $block_id ) ) {
         $block_id = $slug;
@@ -106,11 +109,12 @@ class UnderskeletonContentBlockShortcode {
       // RESET
       wp_reset_postdata();
       
+    else :
+      trigger_error("Content Block slug '{$slug}' not found, it might have been put in trash or deleted.", E_USER_WARNING);
     endif;
 
     return $return_string;
   }
-
 }
 
 

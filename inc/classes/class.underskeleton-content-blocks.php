@@ -68,7 +68,7 @@ class UnderskeletonContentBlocks {
 
 
 
-  public function locate_template( $group, $name = 'default', $path = null ) {
+  public function locate_template( $group, $name = 'simple', $path = null ) {
     $template = '';
 
     // look in theme directory
@@ -89,6 +89,11 @@ class UnderskeletonContentBlocks {
 
     // fall back to plugin template directory
     if ( empty( $template ) || !file_exists( $template ) ) {
+      if ( $name != 'simple' ) {
+        trigger_error("Content Blocks: Template '{$name}' not found, using 'simple' instead.", E_USER_WARNING);
+        $name = 'simple';
+      }
+
       $template = sprintf( '%1$s%2$s-%3$s.php',
       UNDERSKELETON_CONTENT_BLOCKS_TEMPLATES_FOLDER,
       $group,
