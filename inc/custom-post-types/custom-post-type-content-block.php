@@ -87,7 +87,7 @@ function underskeleton_ctb_options_metabox_render() {
     <?php do_action( 'underskeleton_ctb_options_metabox', $block_options ); ?>
 
     <p>
-      <label for="content_block_options[custom_classes]"><?php _e( 'Custom Classes:', 'underskeleton_ctb' ); ?></label><br>
+      <label for="content_block_options[custom_classes]"><?php _e( 'CSS Classes:', 'underskeleton_ctb' ); ?></label><br>
       <input name="content_block_options[custom_classes]" id="content_block_options[custom_classes]" type="text" value="<?php echo esc_attr( $block_options['custom_classes'] ); ?>" class="widefat">
     </p>
 
