@@ -5,7 +5,7 @@ Description: Create reusable content blocks you can display anywhere in your sit
 Plugin URI: http://getunderskeleton.com/plugins/content-blocks
 Author: Diego Versiani
 Author URI: http://diegoversiani.me
-Version: 1.0.0
+Version: 1.0.1
 License: GPL2
 Text Domain: underskeleton_ctb
 Domain Path: /languages
