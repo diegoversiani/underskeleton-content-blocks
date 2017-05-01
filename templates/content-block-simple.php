@@ -1,6 +1,7 @@
 <?php
 /*
 * Shortcode content-block
+* Template: Simple
 */
 ?>
 
