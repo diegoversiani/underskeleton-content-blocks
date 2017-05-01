@@ -79,4 +79,4 @@ Add custom CSS code snippet for your content block. It will be loaded only on th
 == Upgrade Notice ==
 
 = 1.0.1 =
-Introduces a way to customize and extend content blocks.
+Introduces Content Block Templates API.
