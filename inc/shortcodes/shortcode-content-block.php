@@ -80,7 +80,7 @@ class UnderskeletonContentBlockShortcode {
       }
       else {
         $post_title = get_the_title();
-        trigger_error("Content Block '{$post_title}': Template '{$block_options['template']}' not registered or removed, using 'simple' instead.", E_USER_WARNING);
+        trigger_error("Content Block '{$post_title}': Template '{$block_options['template']}' not registered or removed, using 'simple' instead.", E_USER_NOTICE);
       }
 
       if ( empty( $block_id ) ) {
@@ -110,7 +110,7 @@ class UnderskeletonContentBlockShortcode {
       wp_reset_postdata();
       
     else :
-      trigger_error("Content Block slug '{$slug}' not found, it might have been put in trash or deleted.", E_USER_WARNING);
+      trigger_error("Content Block slug '{$slug}' not found, it might have been put in trash or deleted.", E_USER_NOTICE);
     endif;
 
     return $return_string;

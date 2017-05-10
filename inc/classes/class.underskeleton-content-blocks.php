@@ -90,7 +90,7 @@ class UnderskeletonContentBlocks {
     // fall back to plugin template directory
     if ( empty( $template ) || !file_exists( $template ) ) {
       if ( $name != 'simple' ) {
-        trigger_error("Content Blocks: Template '{$name}' not found, using 'simple' instead.", E_USER_WARNING);
+        trigger_error("Content Blocks: Template '{$name}' not found, using 'simple' instead.", E_USER_NOTICE);
         $name = 'simple';
       }
 
