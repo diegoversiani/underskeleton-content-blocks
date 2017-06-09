@@ -103,6 +103,16 @@ class UnderskeletonContentBlocks {
     return $template;
   }
 
+
+
+
+  public function get_block_options( $post_id ) {
+    $block_options = get_post_meta( $post_id, 'content_block_options', true );
+    if ( !is_array( $block_options ) ) { $block_options = array(); }
+
+    return $block_options;
+  }
+
 }
 
 

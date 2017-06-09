@@ -71,10 +71,11 @@ class UnderskeletonContentBlockShortcode {
       $post = $posts[0];
       setup_postdata( $post );
 
-      $block_options = get_post_meta( $post->ID, 'content_block_options', true );
+      $block_options = UnderskeletonContentBlocks()->get_block_options( $post->ID );
 
       $templates = UnderskeletonContentBlocks()->get_templates();
       $block_template = $templates[ 'content-block-simple' ];
+      
       if ( isset( $templates[ $block_options['template'] ] ) ) {
         $block_template = $templates[ $block_options['template'] ];
       }
