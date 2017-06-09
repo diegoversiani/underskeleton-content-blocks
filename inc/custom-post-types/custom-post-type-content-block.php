@@ -63,7 +63,8 @@ function underskeleton_ctb_options_metabox_render() {
 
   $template_options = UnderskeletonContentBlocks()->get_templates();
 
-  $block_options = get_post_meta( $post->ID, 'content_block_options', true );
+  $block_options = UnderskeletonContentBlocks()->get_block_options( $post->ID );
+
   $template = isset( $block_options['template'] ) ? $block_options['template'] : '';
   $custom_classes = isset( $block_options['custom_classes'] ) ? $block_options['custom_classes'] : '';
   $custom_css = isset( $block_options['custom_css'] ) ? $block_options['custom_css'] : '';
@@ -88,12 +89,12 @@ function underskeleton_ctb_options_metabox_render() {
 
     <p>
       <label for="content_block_options[custom_classes]"><?php _e( 'CSS Classes:', 'underskeleton_ctb' ); ?></label><br>
-      <input name="content_block_options[custom_classes]" id="content_block_options[custom_classes]" type="text" value="<?php echo esc_attr( $block_options['custom_classes'] ); ?>" class="widefat">
+      <input name="content_block_options[custom_classes]" id="content_block_options[custom_classes]" type="text" value="<?php echo esc_attr( $custom_classes ); ?>" class="widefat">
     </p>
 
     <p>
       <label for="content_block_options[custom_css]"><?php _e( 'Custom CSS:', 'underskeleton_ctb' ); ?></label><br>
-      <textarea name="content_block_options[custom_css]" id="content_block_options[custom_css]" type="text" class="widefat" rows="8"><?php echo underskeleton_ctb_sanitize_css( $block_options['custom_css'] ); ?></textarea>
+      <textarea name="content_block_options[custom_css]" id="content_block_options[custom_css]" type="text" class="widefat" rows="8"><?php echo underskeleton_ctb_sanitize_css( $custom_css ); ?></textarea>
     </p>
 
   <?php
@@ -119,7 +120,7 @@ function underskeleton_ctb_content_block_metaboxes_save( $post_id ) {
   if ( isset( $_POST['underskeleton_ctb_options_nonce'] )
         && wp_verify_nonce( $_POST['underskeleton_ctb_options_nonce'], basename( __FILE__ ) ) ) {
     
-    $block_options = get_post_meta( $post_id, 'content_block_options', true );
+    $block_options = UnderskeletonContentBlocks()->get_block_options( $post->ID );
 
     $block_options['template'] = sanitize_text_field( $_POST['content_block_options']['template'] );
     $block_options['custom_classes'] = sanitize_text_field( $_POST['content_block_options']['custom_classes'] );
