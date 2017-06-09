@@ -2,10 +2,10 @@
 /*
 Plugin Name: Underskeleton Content Blocks
 Description: Create reusable content blocks you can display anywhere in your site using shortcodes. Build a page or post with different sections, re-use each block separatelly in other pages and posts.
-Plugin URI: http://getunderskeleton.com/plugins/content-blocks
+Plugin URI: https://getunderskeleton.com/plugins/content-blocks
 Author: Diego Versiani
-Author URI: http://diegoversiani.me
-Version: 1.0.1
+Author URI: https://diegoversiani.me
+Version: 1.0.2
 License: GPL2
 Text Domain: underskeleton_ctb
 Domain Path: /languages
