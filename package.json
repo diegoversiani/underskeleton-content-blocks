@@ -1,6 +1,6 @@
 {
   "name": "underskeleton-content-blocks",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "WordPress plugin to create reusable blocks of content you can display anywhere in your website using shortcodes.",
   "main": "underskeleton-content-blocks.php",
   "scripts": {

@@ -68,18 +68,18 @@ Add custom CSS code snippet for your content block. It will be loaded only on th
 
 == Changelog ==
 
+= 1.0.3 =
+# Improvement: Move default editor to simple template options.
+
 = 1.0.2 =
 * Fix: php notice in block options fields when adding new content block
 
 = 1.0.1 =
 * Improvement: Add Content Block Templates API
 
-= 1.0.0 =
-* Initial version
-
 
 
 == Upgrade Notice ==
 
-= 1.0.2 =
-Fixes errors being displayed in block options fields leading to user save unwanted values for those fields.
+= 1.0.3 =
+Move default editor to simple template options.
